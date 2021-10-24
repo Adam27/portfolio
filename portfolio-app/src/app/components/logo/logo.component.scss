@@ -1,0 +1,11 @@
+@use '~@angular/material' as mat;
+@import "../../../theme";
+
+$logo-color: mat.get-color-from-palette($dark-primary, 400);
+
+svg{
+  fill: $logo-color;
+  stroke: $logo-color;
+  width: 200px;
+  height: 51px;
+}

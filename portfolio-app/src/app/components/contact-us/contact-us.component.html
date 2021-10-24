@@ -1,0 +1,24 @@
+<h1>Contact me</h1>
+
+
+<form id="form" class="contact-form" (submit)="sendEmail($event)">
+  <div class="field">
+    <label for="user_name">Name</label>
+    <input type="text" name="user_name" id="user_name">
+  </div>
+  <div class="field">
+    <label for="user_phone_number">phone number</label>
+    <input type="text" name="user_phone_number" id="user_phone_number">
+  </div>
+  <div class="field">
+    <label for="user_message">message</label>
+    <input type="text" name="user_message" id="user_message">
+  </div>
+  <div class="field">
+    <label for="user_email">email</label>
+    <input type="text" name="user_email" id="user_email">
+  </div>
+
+
+  <input type="submit" id="button" value="Send Email" >
+</form>

@@ -1,0 +1,24 @@
+<ul>
+  <li *ngFor="let item of albumsList">
+    <h2>{{item.fields.title}}</h2>
+
+    <p>
+      <img width="500" src="images/{{item.fields.mainPhoto.fields.path}}" alt="{{item.fields.mainPhoto.fields.description}}" title="{{item.fields.mainPhoto.fields.title}}"/>
+    </p>
+    <ul class="d-flex">
+      <li *ngFor="let photo of item.fields.photos" style="width: 150px;  margin: 10px">
+        <h2>{{photo.fields.title}}</h2>
+        <img style="width: 100%;" src="images/{{photo.fields.path}}" alt="{{photo.fields.description}}" title="{{photo.fields.title}}"/>
+        <p>
+          {{photo.fields.description}}
+        </p>
+        <ul>
+          <li  *ngFor="let hashtag of photo.fields.hashtags">{{hashtag.fields.title}}</li>
+        </ul>
+
+      </li>
+    </ul>
+    <br/>
+  </li>
+</ul>
+
