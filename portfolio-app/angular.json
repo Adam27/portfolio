@@ -32,6 +32,10 @@
               "src/images"
             ],
             "styles": [
+              "./node_modules/swiper/swiper.scss",
+              "./node_modules/swiper/modules/pagination/pagination.scss",
+              "./node_modules/swiper/modules/effect-fade/effect-fade.scss",
+              "./node_modules/swiper/modules/autoplay/autoplay.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -101,6 +105,10 @@
               "src/images"
             ],
             "styles": [
+              "./node_modules/swiper/swiper.scss",
+              "./node_modules/swiper/modules/pagination/pagination.scss",
+              "./node_modules/swiper/modules/effect-fade/effect-fade.scss",
+              "./node_modules/swiper/modules/autoplay/autoplay.scss",
               "src/styles.scss"
             ],
             "scripts": []

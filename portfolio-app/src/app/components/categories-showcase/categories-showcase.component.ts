@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import SwiperCore, { SwiperOptions, Navigation, Pagination  } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import SwiperCore, { SwiperOptions, Pagination, EffectFade, Autoplay  } from 'swiper';
 
-
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Pagination, EffectFade, Autoplay]);
 
 @Component({
   selector: 'categories-showcase',
@@ -15,8 +11,15 @@ SwiperCore.use([Navigation, Pagination]);
 export class CategoriesShowcaseComponent implements OnInit {
   config: SwiperOptions = {
     slidesPerView: 1,
-    spaceBetween: 50,
-    navigation: true,
+    navigation: false,
+    effect: 'fade',
+    speed: 1200,
+    fadeEffect: {
+      crossFade: false
+    },
+    autoplay: {
+      delay: 3000
+    },
     pagination: { clickable: true },
     scrollbar: { draggable: true },
   };
