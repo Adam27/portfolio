@@ -16,7 +16,6 @@ export class ContentfulService {
       'sOrYEpWYJt8v9fuB-2mkbKkKXyaX5hCsR2j-2G8uOQE',
 
     contentTypeIds: {
-      todoItem: 'todoItem',
       album: 'album',
       faq: 'faq'
     },

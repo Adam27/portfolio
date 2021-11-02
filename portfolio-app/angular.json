@@ -36,7 +36,7 @@
               "./node_modules/swiper/modules/pagination/pagination.scss",
               "./node_modules/swiper/modules/effect-fade/effect-fade.scss",
               "./node_modules/swiper/modules/autoplay/autoplay.scss",
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -109,7 +109,7 @@
               "./node_modules/swiper/modules/pagination/pagination.scss",
               "./node_modules/swiper/modules/effect-fade/effect-fade.scss",
               "./node_modules/swiper/modules/autoplay/autoplay.scss",
-              "src/styles.scss"
+              "src/styles/styles.scss"
             ],
             "scripts": []
           }

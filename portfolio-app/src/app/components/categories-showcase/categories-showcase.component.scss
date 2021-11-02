@@ -1,2 +1,26 @@
+@use '~@angular/material' as mat;
+
+$text-color: mat.get-color-from-palette(mat.$pink-palette, 200);
+
 :host{color: #fff;}
+
+.category-title{
+  position: absolute;
+  color: $text-color;
+  font-size: 30px;
+  display: none;
+  &--n-1{
+    left: 10%;
+    top: 10%;
+  }
+  &--n-2{
+    right: 10%;
+    top: 10%;
+  }
+  &--n-3{
+    right: 10%;
+    bottom: 10%;
+  }
+}
+
 

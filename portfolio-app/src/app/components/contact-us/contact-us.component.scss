@@ -1,4 +1,7 @@
-.form-control:disabled{
-  border: 0;
-  resize: none;
+.contact-form{
+  max-width: 500px;
+  margin: 5vh auto 0;
+  &__field{
+    width: 100%;
+  }
 }

@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-import { FaqComponent } from './components/faq/faq.component';
-import { PortfolioComponent } from './components/potfolio/portfolio.component';
+import { MainComponent } from './components/main/main.component';
+import { HelpComponent } from './components/faq/help.component';
 
 
 const routes: Routes = [
-  {path: '', component: ContactUsComponent},
-  {path: 'portfolio', component: PortfolioComponent},
-  {path: 'faq', component: FaqComponent},
-  {path: 'contact', component: ContactUsComponent}
+  {path: '', component: MainComponent},
+  {path: 'help', component: HelpComponent},
+  {path: 'contact', component: ContactUsComponent},
+  {path: 'about', component: ContactUsComponent}
 ];
 
 @NgModule({

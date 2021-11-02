@@ -1,0 +1,167 @@
+@use 'sass:map';
+@use 'node_modules/@angular/material/index' as mat;
+@include mat.core();
+
+@function mat-create-dark-color-config($primary, $accent, $warn: null) {
+  @return (
+    primary: $primary,
+    accent: $accent,
+    warn: if($warn != null, $warn, mat.define-palette(mat.$red-palette)),
+    is-dark: false,
+    foreground: $dark-theme-foreground-palette,
+    background: $dark-theme-background-palette,
+  );
+}
+@function mat-validate-theme($theme) {
+  @if map.get($theme, color) {
+    $color: map.get($theme, color);
+    @if not map.get($color, primary) {
+      @error 'Theme does not define a valid "primary" palette.';
+    }
+    @else if not map.get($color, accent) {
+      @error 'Theme does not define a valid "accent" palette.';
+    }
+    @else if not map.get($color, warn) {
+      @error 'Theme does not define a valid "warn" palette.';
+    }
+  }
+  @return $theme;
+}
+@function private-create-backwards-compatibility-theme($theme) {
+  @if not map.get($theme, color) {
+    @return $theme;
+  }
+  $color: map.get($theme, color);
+  @return map.merge($theme, $color);
+}
+@function define-dark-theme($primary, $accent, $warn: mat.define-palette(mat.$red-palette)) {
+  @return private-create-backwards-compatibility-theme(mat-validate-theme((
+    _is-legacy-theme: true,
+    color: mat-create-dark-color-config($primary, $accent, $warn),
+  )));
+}
+
+$dark-primary-text: rgba(black, 0.87);
+$dark-secondary-text: rgba(black, 0.54);
+$dark-disabled-text: rgba(black, 0.38);
+$dark-dividers: rgba(black, 0.12);
+$dark-focused: rgba(black, 0.12);
+$light-primary-text: white;
+$light-secondary-text: rgba(white, 0.7);
+$light-disabled-text: rgba(white, 0.5);
+$light-dividers: rgba(white, 0.12);
+$light-focused: rgba(white, 0.12);
+
+$md-mcgpalette-pink: (
+  50 : #fef3f7,
+  100 : #fce1ea,
+  200 : #facedd,
+  300 : #f8bacf,
+  400 : #f7abc4,
+  500 : #f59cba,
+  600 : #f494b3,
+  700 : #f28aab,
+  800 : #f080a3,
+  900 : #ee6e94,
+  A100 : #ffffff,
+  A200 : #ffffff,
+  A400 : #ffffff,
+  A700 : #ffe5ed,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+$md-mcgpalette-gray-brown: (
+  50 : #faf9f7,
+  100 : #e8e6e1,
+  200 : #d3cec4,
+  300 : #b8b2a7,
+  400 : #a39e93,
+  500 : #857f72,
+  600 : #625d52,
+  700 : #504a40,
+  800 : #423d33,
+  900 : #27241d,
+  A100 : #fde6b3,
+  A200 : #fcd681,
+  A400 : #ffc64c,
+  A700 : #ffbe32,
+  contrast: (
+    50: $dark-primary-text,
+    100: $dark-primary-text,
+    200: $dark-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $light-primary-text,
+    600: $light-primary-text,
+    700: $light-primary-text,
+    800: $light-primary-text,
+    900: $light-primary-text,
+    A100: $dark-primary-text,
+    A200: $light-primary-text,
+    A400: $light-primary-text,
+    A700: $light-primary-text
+  )
+);
+
+
+$dark-theme-background-palette: (
+  status-bar: black,
+  app-bar:    map.get($md-mcgpalette-gray-brown, 900),
+  background: map.get($md-mcgpalette-gray-brown, 900),
+  hover:      rgba(white, 0.04),
+  card:       map.get($md-mcgpalette-gray-brown, 800),
+  dialog:     map.get($md-mcgpalette-gray-brown, 800),
+  disabled-button: rgba(white, 0.12),
+  raised-button: map.get($md-mcgpalette-gray-brown, 800),
+  focused-button: $light-focused,
+  selected-button: map.get($md-mcgpalette-gray-brown, 900),
+  selected-disabled-button: map.get($md-mcgpalette-gray-brown, 800),
+  disabled-button-toggle: black,
+  unselected-chip: map.get($md-mcgpalette-gray-brown, 700),
+  disabled-list-option: black,
+  tooltip: map.get($md-mcgpalette-gray-brown, 700),
+);
+
+$dark-theme-foreground-palette: (
+  base:              white,
+  divider:           $light-dividers,
+  dividers:          $light-dividers,
+  disabled:          $light-disabled-text,
+  disabled-button:   rgba(white, 0.3),
+  disabled-text:     $light-disabled-text,
+  elevation:         black,
+  hint-text:         $light-disabled-text,
+  secondary-text:    $light-secondary-text,
+  icon:              white,
+  icons:             white,
+  text:              white,
+  slider-min:        white,
+  slider-off:        rgba(white, 0.3),
+  slider-off-active: rgba(white, 0.3),
+);
+
+// Define a dark theme
+$dark-primary: mat.define-palette(mat.$pink-palette, 400, 200, 600);
+$dark-accent: mat.define-palette(mat.$teal-palette);
+$dark-theme: define-dark-theme($dark-primary, $dark-accent);
+
+@include mat.all-component-themes($dark-theme);
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

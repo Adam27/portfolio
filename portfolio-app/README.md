@@ -29,6 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 #todo 
 sentry
-logo
-material design
-dark skin
+useful advices about Copenhagen
+get ready to your photo session. Step by step guide.

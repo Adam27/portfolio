@@ -1,0 +1,9 @@
+@import "../../../styles/variables";
+
+.main-page{
+  &__greeting{
+    text-align: center;
+    max-width: $max-text-width;
+    margin: 7vh auto;
+  }
+}
