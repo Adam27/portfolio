@@ -1,0 +1,13 @@
+@use '~@angular/material' as mat;
+@import "src/styles/theme";
+
+$theme-color: mat.get-color-from-palette($dark-primary, 400);
+
+svg {
+  fill: $theme-color;
+  stroke: $theme-color;
+}
+
+.fi0, .fi1 {
+  fill: $theme-color;
+}

@@ -26,6 +26,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MainComponent } from './components/main/main.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -34,7 +35,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent, ContactUsComponent,
-    PortfolioComponent, NavComponent, CategoriesShowcaseComponent, HeaderComponent, LogoComponent, MainComponent
+    PortfolioComponent, NavComponent, CategoriesShowcaseComponent, HeaderComponent, LogoComponent, MainComponent, FooterComponent
   ],
   imports: [
     BrowserModule,

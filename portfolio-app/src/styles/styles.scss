@@ -44,14 +44,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .text-container{
   max-width: $max-text-width;
-  margin: 0 auto;
+  margin: 5vh auto;
   padding: 0 10px;
 }
 .grid-container{
   max-width: $max-container-width;
-  margin: 0 auto;
   padding: 0 10px;
-  & > h1{
-    margin-top: 5vh;
-  }
+  margin: 5vh auto;
 }
