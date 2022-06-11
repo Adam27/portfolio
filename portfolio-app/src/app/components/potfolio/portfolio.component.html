@@ -4,7 +4,7 @@
       <div class="album-2__list">
         <div class="album-2__list-item" *ngFor="let item of fakeArray; let i = index">
           <div class="album-2__list-item-image">
-            <a href="/images/ml/ml{{i}}.jpg" target="_blank"><img src="images/ml/ml{{i}}.jpg"></a>
+            <a href="/images/ml/ml{{i}}.jpg" target="_blank"><img src="images/ml/ml{{i}}.jpg" fetchpriority="low"></a>
           </div>
         </div>
       </div>

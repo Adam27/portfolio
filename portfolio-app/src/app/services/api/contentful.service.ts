@@ -11,19 +11,21 @@ import { createClient, Entry } from 'contentful';
 export class ContentfulService {
 
   private readonly CONFIG = {
-    space: 'xrengt4bvmur',
-    accessToken:
-      'sOrYEpWYJt8v9fuB-2mkbKkKXyaX5hCsR2j-2G8uOQE',
+    space: 'w1y860sghoyy',
+    deliveryAccessToken:
+      'iSvLubaZxg5q7uLAQNsjRathMzi2nnEZpmW2TExSOIY',
 
     contentTypeIds: {
       album: 'album',
+      albumGenre: 'albumGenre',
       faq: 'faq'
     },
   };
-
+  /*https://cdn.contentful.com/spaces/w1y860sghoyy/environments/master/entries/2dy3xiWE5nGMPRDfpR74a4?access_token=iSvLubaZxg5q7uLAQNsjRathMzi2nnEZpmW2TExSOIY
+  */
   private deliveryClient = createClient({
     space: this.CONFIG.space,
-    accessToken: this.CONFIG.accessToken
+    accessToken: this.CONFIG.deliveryAccessToken
   })
 
 
@@ -38,12 +40,58 @@ export class ContentfulService {
     );
   }
 
-  getAllAlbums(): Observable<Entry<any>[]> {
+  getAllAlbums(): any/*Observable<Entry<any>[]>*/ {
     return fromPromise(this.deliveryClient.getEntries(Object.assign({
         content_type: this.CONFIG.contentTypeIds.album,
         include: 2
-      })).then(res => res.items)
+      })).then(entries => {
+          /*console.log(JSON.stringify(entries));*/
+          entries.items.forEach(function (entry) {
+            console.log(entry.fields);
+
+          });
+
+          return entries.items;
+        }
+      )
     );
   }
+
+  getAllAlbumGenres(): any/*Observable<Entry<any>[]>*/ {
+    return fromPromise(this.deliveryClient.getEntries(Object.assign({
+        content_type: this.CONFIG.contentTypeIds.albumGenre,
+        include: 2
+      })).then(entries => {
+          /*console.log(JSON.stringify(entries));*/
+          entries.items.forEach(function (entry) {
+            console.log(entry.fields);
+
+          });
+
+          return entries.items;
+        }
+      )
+    );
+  }
+
+  getAlbumsByGenre(genreList: string[]): any/*Observable<Entry<any>[]>*/ {
+    return fromPromise(this.deliveryClient.getEntries(Object.assign({
+        content_type: this.CONFIG.contentTypeIds.album,
+        'fields.albumGenre.sys.id[in]': genreList.toString(),
+        include: 2
+      })).then(entries => {
+          /*console.log(JSON.stringify(entries));*/
+          entries.items.forEach(function (entry) {
+            console.log(entry.fields);
+
+          });
+
+          return entries.items;
+        }
+      )
+    );
+  }
+
+
 
 }

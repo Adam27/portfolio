@@ -1,34 +1,5 @@
 <div class="grid-container">
 
+  <form id="hs-contact-form"></form>
 
-  <form id="form" class="contact-form" (submit)="sendEmail($event)">
-    <h1 class="mat-headline">Contact me</h1>
-    <mat-form-field class="contact-form__field" appearance="fill">
-      <mat-label>Name</mat-label>
-      <input matInput type="text" name="user_name" id="user_name">
-    </mat-form-field>
-    <br/>
-    <mat-form-field class="contact-form__field" appearance="fill">
-      <mat-label>Tel. number</mat-label>
-      <input matInput type="text" name="user_phone_number" id="user_phone_number">
-    </mat-form-field>
-    <br/>
-    <mat-form-field class="contact-form__field" appearance="fill">
-      <mat-label>Email</mat-label>
-      <input matInput type="text" name="user_email" id="user_email">
-    </mat-form-field>
-    <br/>
-    <mat-form-field class="contact-form__field" appearance="fill">
-      <mat-label>Message</mat-label>
-      <textarea matInput type="text" name="user_message" id="user_message"></textarea>
-    </mat-form-field>
-
-    <br/>
-    <br/>
-
-
-    <div style="text-align: center;">
-      <button mat-flat-button style="width: 250px" color="primary" type="submit" id="button" value="Send">Send</button>
-    </div>
-  </form>
 </div>

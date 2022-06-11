@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContentfulService } from '../../services/api/contentful.service';
 import { Entry } from 'contentful';
-import { newArray } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'portfolio',
@@ -13,15 +12,18 @@ export class PortfolioComponent implements OnInit{
 
   albumsList: Entry<any>[] = [];
 
-  constructor(private contentfulServive: ContentfulService) {
+  constructor(private contentfulService: ContentfulService) {
   }
 
   ngOnInit() {
-    this.contentfulServive.getAllAlbums().subscribe(
+    /*this.contentfulService.getAlbumsByGenre(['6Bvef0zMHFPpR7VxKGnckZ','tvnf1kN1zzZq0omUhsQ5A']).subscribe(
       (list: any) => {
         this.albumsList = list;
-         console.log(list);
-
+      }
+    );*/
+    this.contentfulService.getAllAlbumGenres().subscribe(
+      (list: any) => {
+        this.albumsList = list;
       }
     );
   }

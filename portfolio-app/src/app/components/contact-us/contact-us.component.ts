@@ -7,16 +7,14 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
   styleUrls: ['./contact-us.component.scss']
 })
 export class ContactUsComponent {
-
-  public sendEmail(e: Event) {
-    e.preventDefault();
-    emailjs.sendForm('service_9kx6l2s', 'template_3cbhk1a', e.target as HTMLFormElement, 'user_cQKsCDm2R5gfJ9OJwHd4i')
-      .then((result: EmailJSResponseStatus) => {
-        console.log(result.text);
-      }, (error) => {
-        console.log(error.text);
-      });
-
+  ngAfterContentInit() {
+    // @ts-ignore
+    window['hbspt'].forms.create({
+      region: "eu1",
+      portalId: "25834459",
+      formId: "f1b5a7fe-ec40-421b-b901-5bf60cc9c8f8",
+      target: "#hs-contact-form"
+    });
   }
 
 }
