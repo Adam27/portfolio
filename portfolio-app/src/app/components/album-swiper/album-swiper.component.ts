@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation, ViewChild, Input } from "@angular/core";
 import { SwiperComponent } from "swiper/angular";
 
 // import Swiper core and required modules
@@ -12,7 +12,7 @@ SwiperCore.use([Pagination, Navigation]);
   encapsulation: ViewEncapsulation.None
 })
 export class AlbumSwiperComponent implements OnInit {
-
+  @Input() album:any;
   constructor() { }
 
   ngOnInit(): void {

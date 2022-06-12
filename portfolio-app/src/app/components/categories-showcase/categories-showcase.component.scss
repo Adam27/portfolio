@@ -1,4 +1,4 @@
-@use '~@angular/material' as mat;
+@use 'node_modules/@angular/material/index' as mat;
 
 $text-color: mat.get-color-from-palette(mat.$pink-palette, 200);
 
