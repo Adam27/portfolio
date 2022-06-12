@@ -40,6 +40,12 @@ export class ContentfulService {
     );
   }
 
+  getAlbum(albumId: string): Observable<Entry<any>> {
+    return fromPromise(
+      this.deliveryClient.getEntry(albumId).then(album => album)
+    );
+  }
+
   getAllAlbums(): any/*Observable<Entry<any>[]>*/ {
     return fromPromise(this.deliveryClient.getEntries(Object.assign({
         content_type: this.CONFIG.contentTypeIds.album,
@@ -47,7 +53,7 @@ export class ContentfulService {
       })).then(entries => {
           /*console.log(JSON.stringify(entries));*/
           entries.items.forEach(function (entry) {
-            console.log(entry.fields);
+            console.log(entry);
 
           });
 
@@ -64,7 +70,7 @@ export class ContentfulService {
       })).then(entries => {
           /*console.log(JSON.stringify(entries));*/
           entries.items.forEach(function (entry) {
-            console.log(entry.fields);
+            console.log(entry);
 
           });
 
@@ -82,7 +88,7 @@ export class ContentfulService {
       })).then(entries => {
           /*console.log(JSON.stringify(entries));*/
           entries.items.forEach(function (entry) {
-            console.log(entry.fields);
+            console.log(entry);
 
           });
 

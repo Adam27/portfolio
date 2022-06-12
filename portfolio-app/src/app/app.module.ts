@@ -27,6 +27,9 @@ import { MainComponent } from './components/main/main.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { FooterComponent } from './components/footer/footer.component';
+import { AlbumComponent } from './components/album/album.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AlbumSwiperComponent } from './components/album-swiper/album-swiper.component';
 
 
 
@@ -35,7 +38,7 @@ import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent, ContactUsComponent,
-    PortfolioComponent, NavComponent, CategoriesShowcaseComponent, HeaderComponent, LogoComponent, MainComponent, FooterComponent
+    PortfolioComponent, NavComponent, CategoriesShowcaseComponent, HeaderComponent, LogoComponent, MainComponent, FooterComponent, AlbumComponent, AlbumSwiperComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule,
     MatRippleModule,
     MatGridListModule,
-    MatTabsModule
+    MatTabsModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

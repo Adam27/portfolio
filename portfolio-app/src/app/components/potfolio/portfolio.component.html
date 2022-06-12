@@ -1,39 +1,26 @@
 <mat-tab-group mat-align-tabs="center" style="max-width: 1060px; margin: auto">
-  <mat-tab label="Wedding">
-    <div class="album-2">
-      <div class="album-2__list">
-        <div class="album-2__list-item" *ngFor="let item of fakeArray; let i = index">
-          <div class="album-2__list-item-image">
-            <a href="/images/ml/ml{{i}}.jpg" target="_blank"><img src="images/ml/ml{{i}}.jpg" fetchpriority="low"></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </mat-tab>
-  <mat-tab label="Nature">
-    <div class="album-2">
-      <div class="album-2__list">
-        <div class="album-2__list-item" *ngFor="let item of fakeArray; let i = index">
-          <div class="album-2__list-item-image">
-            <a href="/images/mn/mn{{i}}.jpg" target="_blank"><img src="images/mn/mn{{i}}.jpg"></a>
-          </div>
-        </div>
-      </div>
 
-    </div>
-  </mat-tab>
-  <mat-tab label="Snaps">
-    <div class="album-2">
-      <div class="album-2__list">
-        <div class="album-2__list-item" *ngFor="let item of fakeArray; let i = index">
-          <div class="album-2__list-item-image">
-            <a href="/images/ml/ml{{i}}.jpg" target="_blank"><img src="images/ml/ml{{i}}.jpg"></a>
+  <ng-container *ngFor="let genre of albumGenreList">
+    <mat-tab label="{{genre.fields.albumGenre}}">
+
+      <ng-container *ngFor="let album of albumsList">
+
+        <!--todo check for multiple genres-->
+        <div class="album-2" *ngIf="genre.sys.id === album.fields.albumGenre[0].sys.id">
+          <div class="album-2__list">
+            <div class="album-2__list-item">
+              <div class="album-2__list-item-image">
+                <a routerLink="/album/{{album.sys.id}}"><img src="{{album.fields.mainPhoto.fields.file.url}}"></a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </ng-container>
 
-    </div>
-  </mat-tab>
+
+    </mat-tab>
+
+  </ng-container>
 </mat-tab-group>
 
 

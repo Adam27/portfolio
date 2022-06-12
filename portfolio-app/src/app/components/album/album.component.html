@@ -1,0 +1,22 @@
+
+
+           <ng-container *ngIf="album && !showSwiper">
+
+             <mat-grid-list [cols]="cols" rowHeight="1:1">
+
+                 <ng-container *ngFor="let photo of album.fields.photos">
+                   <mat-grid-tile>
+                    <img src="{{photo.fields.file.url}}?fm=webp&fit=fill&w=600&h=600" loading="lazy">
+                   </mat-grid-tile>
+                 </ng-container>
+
+             </mat-grid-list>
+           </ng-container>
+
+           <mat-spinner *ngIf="!album"></mat-spinner>
+
+
+
+           <app-album-swiper *ngIf="album && showSwiper"></app-album-swiper>
+
+          <!-- <button type="button" (click)="goBack()">go back</button>-->

@@ -8,23 +8,27 @@ import { Entry } from 'contentful';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit{
-  fakeArray = new Array(14);
-
   albumsList: Entry<any>[] = [];
+  albumGenreList: Entry<any>[] = [];
+  albums: any[] = [];
 
   constructor(private contentfulService: ContentfulService) {
   }
 
   ngOnInit() {
-    /*this.contentfulService.getAlbumsByGenre(['6Bvef0zMHFPpR7VxKGnckZ','tvnf1kN1zzZq0omUhsQ5A']).subscribe(
+    this.contentfulService.getAllAlbums().subscribe(
       (list: any) => {
         this.albumsList = list;
-      }
-    );*/
-    this.contentfulService.getAllAlbumGenres().subscribe(
-      (list: any) => {
-        this.albumsList = list;
+        console.log("albumsList", list);
       }
     );
+    this.contentfulService.getAllAlbumGenres().subscribe(
+      (list: any) => {
+        this.albumGenreList = list;
+         console.log("albumGenreList", list);
+      }
+    );
+
+
   }
 }
