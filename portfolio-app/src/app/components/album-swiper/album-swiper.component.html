@@ -1,15 +1,33 @@
-<swiper
-  [pagination]="{
+<div class="album-swiper-container">
+  <button (click)="close()" class="album-swiper-close" mat-mini-fab color="primary" matTooltip="Back to the album" aria-label="Back to the album">
+    <mat-icon>close</mat-icon>
+  </button>
+  <button class="album-swiper-prev" mat-mini-fab color="primary" matTooltip="Previous photo" aria-label="Previous photo">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <button class="album-swiper-next" mat-mini-fab color="primary" matTooltip="Next photo" aria-label="Next photo">
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
+
+
+  <swiper
+    [pagination]="{
       type: 'progressbar'
     }"
-  [navigation]="true"
+    [navigation]="{
+        nextEl: '.album-swiper-next',
+        prevEl: '.album-swiper-prev'
+    }"
+    #swiper
+    class="album-swiper">
+    <ng-container *ngFor="let photo of album.fields.photos">
+      <ng-template swiperSlide>
+        <a href="{{photo.fields.file.url}}" target="_blank" class="album-swiper-full" mat-mini-fab color="primary" matTooltip="Open full size photo in the new tab" aria-label="Open full size image in the new tab">
+          <mat-icon>open_in_full</mat-icon>
+        </a>
+        <img class="album-swiper__image" src="{{photo.fields.file.url}}?fm=webp&fit=pad&h={{viewportDimensions.height}}" loading="lazy">
+      </ng-template>
+    </ng-container>
 
-  class="mySwiper"  style= "width: 100%; height: 100%"  >
-  <ng-container *ngFor="let photo of album.fields.photos">
-    <ng-template swiperSlide>
-
-      <img src="{{photo.fields.file.url}}?fm=webp&fit=fill&w=600&h=600" loading="lazy">
-    </ng-template>
-  </ng-container>
-
-</swiper>
+  </swiper>
+</div>

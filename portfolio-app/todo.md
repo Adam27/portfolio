@@ -1,9 +1,8 @@
-contact
-about me
-chat
+book button in header
+mobile menu
+alt for images
 prices
-portfolio
-
-lazy load
-captcha
-
+about me
+design
+albums
+footer = phone, email 

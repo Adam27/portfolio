@@ -1,0 +1,51 @@
+.album-swiper-container{
+  width: 100%;
+  height: calc(100% - 64px);
+  position: relative;
+}
+.album-swiper-close {
+   position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 20;
+}
+.album-swiper-prev {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  z-index: 20;
+  &.swiper-button-disabled{
+    display: none;
+  }
+}
+.album-swiper-next {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  z-index: 20;
+  &.swiper-button-disabled{
+    display: none;
+  }
+}
+.album-swiper-full {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  z-index: 20;
+}
+
+.album-swiper{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+}
+.album-swiper .swiper-slide{
+               display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.album-swiper__image{
+
+}

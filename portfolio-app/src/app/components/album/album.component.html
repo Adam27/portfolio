@@ -1,12 +1,12 @@
 
 
-           <ng-container *ngIf="album && !showSwiper">
+           <ng-container *ngIf="album && !isSwiperVisible">
 
              <mat-grid-list [cols]="cols" rowHeight="1:1">
 
-                 <ng-container *ngFor="let photo of album.fields.photos">
+                 <ng-container *ngFor="let photo of album.fields.photos; let i = index;">
                    <mat-grid-tile>
-                    <img src="{{photo.fields.file.url}}?fm=webp&fit=fill&w=600&h=600" loading="lazy">
+                    <img (click)="showSwiper(i)" class="album__image" src="{{photo.fields.file.url}}?fm=webp&fit=fill&w=600&h=600" loading="lazy">
                    </mat-grid-tile>
                  </ng-container>
 
@@ -17,6 +17,11 @@
 
 
 
-           <app-album-swiper *ngIf="album && showSwiper" [album]="album"></app-album-swiper>
+           <app-album-swiper *ngIf="album && isSwiperVisible"
+                             [album]="album"
+                             [initialSwiperIndex]="initialSwiperIndex"
+                             [viewportDimensions]="viewportDimensions"
+                             (closeEvent)="closeSwiper()"
+           ></app-album-swiper>
 
           <!-- <button type="button" (click)="goBack()">go back</button>-->

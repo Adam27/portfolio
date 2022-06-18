@@ -1,0 +1,7 @@
+.album__image{
+  transition: all 300ms ease-in-out;
+}
+.album__image:hover{
+  transform: scale(1.3);
+  cursor: pointer;
+}

@@ -30,6 +30,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AlbumComponent } from './components/album/album.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { AlbumSwiperComponent } from './components/album-swiper/album-swiper.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -55,6 +56,7 @@ import { AlbumSwiperComponent } from './components/album-swiper/album-swiper.com
     MatFormFieldModule,
     MatInputModule,
     MatToolbarModule,
+    MatTooltipModule,
     MatRippleModule,
     MatGridListModule,
     MatTabsModule,

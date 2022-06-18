@@ -1,3 +1,13 @@
+/*c-: Component c-card__header,c-card--large
+has-,is-: Utility is-big, has-slideAnimation
+js-: Actions js-start, js-exit
+o-: Object o-container, o-container--fluid
+qa-: Testing qa-error, qa-hide
+s-: Scope s-banner, s-jumbotron
+t-: Theme t-dark, t-light
+u-: Utility u-clearfix,u-align-center*/
+
+
 @use 'node_modules/@angular/material/index' as mat;
 @import "src/styles/theme";
 @import "variables";
@@ -5,44 +15,60 @@
 $swiper-pagination-bullet-color: mat.get-color-from-palette($dark-accent, 400);
 $swiper-pagination-bullet-active-color: mat.get-color-from-palette($dark-primary, 500);
 
+@keyframes morph {
+  0% {
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%
+  }
+  100% {
+    border-radius: 40% 60%
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn)
+  }
+}
+.shapes-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &:before, &:after {
+    content: "";
+    width: 70vmax;
+    height: 70vmax;
+    position: absolute;
+    background: rgba(0,0,0,0.07);
+    left: -20vmin;
+    top: -20vmin;
+    animation: morph 15s linear infinite alternate, spin 20s linear infinite;
+    z-index: 1;
+    will-change: border-radius, transform;
+    transform-origin: 55% 55%;
+    pointer-events: none;
+  }
+  &:after {
+    width: 70vmin;
+    height: 70vmin;
+    left: auto;
+    right: -10vmin;
+    top: auto;
+    bottom: 0;
+    animation: morph 10s linear infinite alternate, spin 26s linear infinite reverse;
+    transform-origin: 20% 20%;
+  }
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
   font-weight: 300;
-  font-size: 16px;}
+  font-size: 16px;
+  overflow-y: scroll;
+}
 
 .flex-spacer {
   flex: 1 1 auto;
 }
-
-.swiper {
-  width: 100%;
-}
-
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 400px;
-}
-
-.swiper-slide img {
-  object-fit: cover;
-  width: 100%;
-  object-position: 50% 50%;
-}
-
-
-.swiper-pagination-bullet {
-  border-radius: 0;
-  width: 40px;
-  height: 7px;
-  background: $swiper-pagination-bullet-color;
-  opacity: 1;
-}
-.swiper-pagination-bullet-active{
-  background: $swiper-pagination-bullet-active-color;
-}
-
 
 .text-container{
   max-width: $max-text-width;
